@@ -1,6 +1,6 @@
 // POST /api/chat  — Core AI chat endpoint (used by Web Widget & internal)
 import { NextRequest, NextResponse } from 'next/server'
-import { createAdminClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/db/server'
 import { ragChat, type ChatMessage } from '@/lib/rag/retrieval'
 
 export async function POST(req: NextRequest) {

@@ -1,5 +1,5 @@
 import OpenAI from 'openai'
-import { createAdminClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/db/server'
 import { generateEmbedding } from '@/lib/openai/embeddings'
 import type { Chatbot } from '@/types/database'
 

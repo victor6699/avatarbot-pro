@@ -1,6 +1,6 @@
 // POST /api/webhooks/line — LINE Messaging API Webhook
 import { NextRequest, NextResponse } from 'next/server'
-import { createAdminClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/db/server'
 import { ragChat } from '@/lib/rag/retrieval'
 import crypto from 'crypto'
 

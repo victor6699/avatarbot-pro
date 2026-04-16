@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { createClient } from '@/lib/supabase/client'
+import { createClient } from '@/lib/db/client'
 import { Bell, LogOut, User } from 'lucide-react'
 import toast from 'react-hot-toast'
 

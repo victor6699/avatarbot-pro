@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { createClient } from '@/lib/supabase/client'
+import { createClient } from '@/lib/db/client'
 import { Upload, FileText, Trash2, RefreshCw, CheckCircle, AlertCircle, Clock } from 'lucide-react'
 import toast from 'react-hot-toast'
 import type { KnowledgeDocument } from '@/types/database'

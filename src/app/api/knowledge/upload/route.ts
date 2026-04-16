@@ -1,6 +1,6 @@
 // POST /api/knowledge/upload — Upload & index knowledge documents
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient, createAdminClient } from '@/lib/supabase/server'
+import { createClient, createAdminClient } from '@/lib/db/server'
 import { generateEmbeddings, chunkText } from '@/lib/openai/embeddings'
 
 export const maxDuration = 60 // Vercel/Render max timeout

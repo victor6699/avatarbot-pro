@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/server'
+import { createClient } from '@/lib/db/server'
 import { MessageSquare, Bot, BookOpen, TrendingUp, Users, Clock } from 'lucide-react'
 import Link from 'next/link'
 import { formatNumber } from '@/lib/utils'

@@ -1,6 +1,6 @@
 // GET /api/widget/[botId] — Returns embeddable chat widget JS
 import { NextRequest, NextResponse } from 'next/server'
-import { createAdminClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/db/server'
 
 export async function GET(req: NextRequest, { params }: { params: { botId: string } }) {
   const supabase = await createAdminClient()

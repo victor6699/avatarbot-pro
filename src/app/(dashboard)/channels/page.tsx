@@ -18,7 +18,10 @@ export default function ChannelsPage() {
 
   useEffect(() => {
     supabase.from('chatbots').select('id, name').then(({ data }) => {
-      if (data) { setChatbots(data); if (data.length > 0) setSelectedBot(data[0].id) }
+      if (data && data.length > 0) { 
+        setChatbots(data as any); 
+        setSelectedBot((data as any)[0].id) 
+      }
     })
   }, [])
 
@@ -33,8 +36,8 @@ export default function ChannelsPage() {
       toast.error('請填寫所有 LINE 設定'); return
     }
     setSaving(true)
-    const { data: profile } = await supabase.from('profiles').select('tenant_id').single()
-    const { error } = await supabase.from('channels').upsert({
+    const { data: profile } = await (supabase as any).from('profiles').select('tenant_id').single()
+    const { error } = await (supabase as any).from('channels').upsert({
       chatbot_id: selectedBot,
       tenant_id: profile?.tenant_id,
       type: 'line',

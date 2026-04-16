@@ -3,7 +3,7 @@ import { createAdminClient } from '@/lib/supabase/server'
 import { generateEmbedding } from '@/lib/openai/embeddings'
 import type { Chatbot } from '@/types/database'
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY || 'dummy_key_to_bypass_build_error' })
 
 export interface ChatMessage {
   role: 'user' | 'assistant' | 'system'

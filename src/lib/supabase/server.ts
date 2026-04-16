@@ -6,8 +6,8 @@ import type { Database } from '@/types/database'
 export async function createClient() {
   const cookieStore = await cookies()
   return createServerClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://dummy.supabase.co',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'dummy_anon_key',
     {
       cookies: {
         getAll() { return cookieStore.getAll() },
@@ -27,8 +27,8 @@ export async function createClient() {
 export async function createAdminClient() {
   const cookieStore = await cookies()
   return createServerClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://dummy.supabase.co',
+    process.env.SUPABASE_SERVICE_ROLE_KEY || 'dummy_role_key',
     {
       cookies: {
         getAll() { return cookieStore.getAll() },

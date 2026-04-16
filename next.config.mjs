@@ -4,6 +4,9 @@ const nextConfig = {
   eslint: { ignoreDuringBuilds: true },
   experimental: {
     serverComponentsExternalPackages: ['pdf-parse', 'mammoth'],
+    cpus: 1,
+    workerThreads: false,
+    memoryBasedWorkersCount: true,
   },
   images: {
     remotePatterns: [

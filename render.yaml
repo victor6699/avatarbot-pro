@@ -1,0 +1,33 @@
+# Render.com Deploy Configuration
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: avatarbot-pro
+    runtime: node
+    plan: starter          # Free tier to start; upgrade to Standard for production
+    region: singapore      # 亞洲節點，台灣低延遲
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true       # Auto-deploy on git push
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_APP_URL
+        sync: false         # Set manually in Render dashboard
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: LINE_CHANNEL_SECRET
+        sync: false
+      - key: LINE_CHANNEL_ACCESS_TOKEN
+        sync: false
+      - key: ENCRYPTION_KEY
+        generateValue: true  # Auto-generate 32-char random string
